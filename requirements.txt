@@ -1,0 +1,4 @@
+azure-data-tables==12.5.0
+azure-identity==1.17.1
+azure-storage-queue==12.11.0
+requests==2.31.0

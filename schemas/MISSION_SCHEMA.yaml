@@ -1,0 +1,33 @@
+# ANNY Mission Schema - Defines the structure of mission records
+schema_version: "1.0"
+required_fields:
+  - mission_id
+  - record_kind
+  - title
+  - mission_type
+  - objective
+  - current_state
+  - created_at
+  - created_by
+optional_fields:
+  - scope
+  - executor
+  - authority
+  - parent_mission_id
+  - success_criteria
+  - failure_criteria
+  - block_conditions
+  - active_constraints
+  - handoff
+valid_states:
+  - PROPOSED
+  - ACTIVE
+  - BLOCKED
+  - COMPLETED
+  - CANCELLED
+  - DEFERRED
+valid_types:
+  - STRATEGIC
+  - OPERATIONAL
+  - TACTICAL
+  - MAINTENANCE

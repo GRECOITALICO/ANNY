@@ -1,0 +1,24 @@
+# ANNY Evidence Schema - Defines the structure of evidence records
+schema_version: "1.0"
+required_fields:
+  - evidence_id
+  - evidence_type
+  - status
+  - content_hash
+  - created_at
+  - provenance
+optional_fields:
+  - description
+  - references
+  - verified_by
+valid_types:
+  - TEST_RESULT
+  - AUDIT_RECORD
+  - CERTIFICATION
+  - OBSERVATION
+  - MEASUREMENT
+valid_statuses:
+  - SUBMITTED
+  - VERIFIED
+  - REJECTED
+  - SUPERSEDED
