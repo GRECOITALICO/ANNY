@@ -1,24 +1,23 @@
 # ANNY: First Use Guide
 
-Una vez finalizada la configuración e inicialización de Genesis, tu organización virtual está lista para operar de manera autónoma.
+Una vez finalizado el bootstrap, tu instancia de ANNY opera con el contexto durable de tu propia instalación.
 
-## Tu Organización Base
-El proceso de Genesis ha creado una estructura estándar corporativa:
-- **L1 (Director Level):** Líderes de departamento con autoridad para aprobar decisiones tácticas y emitir directrices.
-- **L2 (Specialist Level):** Ejecutores especializados encargados de investigar, proponer y resolver tareas concretas.
+## Tu organización
 
-## Cómo delegar misiones
-Como líder (L0), tu rol es marcar la dirección estratégica. No necesitas micro-gestionar.
+Genesis crea una estructura organizacional estándar con L0, L1 y L2. Los identificadores concretos de actores y departamentos pertenecen a tu instancia; no se copian desde CONRRAD ni desde otra organización.
 
-**Ejemplo de solicitud:**
-> *"Quiero lanzar un nuevo producto de software para finanzas personales el próximo trimestre. Preparen el plan."*
+## Cómo delegar trabajo
 
-Al recibir esta instrucción, ANNY:
-1. Analizará la solicitud y creará una `MISSION`.
-2. Asignará la misión al Director L1 apropiado (por ejemplo, el Director de Producto o Ingeniería).
-3. El Director L1 creará sub-tareas y las delegará a los Especialistas L2.
-4. Los Especialistas generarán `EVIDENCE` (documentación, código, análisis).
-5. El L1 aprobará (creando una `DECISION`), y la misión avanzará.
+Como autoridad L0, expresas el objetivo y los criterios. ANNY reconstruye el contexto, crea la misión, asigna el trabajo según la estructura local, registra evidencia y mantiene la trazabilidad de las decisiones.
+
+## Identidad y GitHub
+
+La identidad utilizada para autorizar operaciones sobre repositorios debe provenir del principal GitHub autenticado. Un login, owner o user id escrito por el usuario no constituye autenticación.
 
 ## Todo queda registrado
-Cualquier acción significativa es persistida inmediatamente en tu repositorio de GitHub. Si ocurre un fallo en la conexión, puedes abrir una nueva ventana y ANNY continuará donde lo dejó al leer el repositorio.
+
+Las operaciones importantes generan registros durables. Al abrir una nueva conversación o reiniciar el runtime, ANNY puede reconstruir el estado desde esos registros sin depender del historial conversacional.
+
+## Repository Fabric
+
+Repository Fabric es una infraestructura de servicio compartida que ANNY utiliza mediante su frontera pública RF. La implementación privada del servicio no forma parte de este repositorio distribuible.
