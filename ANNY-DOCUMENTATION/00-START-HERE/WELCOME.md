@@ -1,38 +1,35 @@
-# Welcome to AURORA CORPORATION
+# Welcome to ANNY
 
-## Your organization is ready.
+ANNY is a governed operational runtime that can be used independently by different organizations.
 
-ANNY has already prepared your complete organizational structure. You don't need to create departments, assign roles, or design the hierarchy.
+Your ANNY installation is identified through your authenticated GitHub principal and operates over the repositories authorized for that principal.
 
-**What ANNY has set up for you:**
+## The model
 
-- **1 organizational authority** (L0) — the root of all decisions
-- **8 department directors** (L1) — each leading a specialized area
-- **8 department specialists** (L2) — each executing work within their department
-- **17 total actors** working together
+```text
+You / your organization
+        ↓
+Authenticated GitHub account
+        ↓
+Your ANNY instance
+        ↓
+Authorized repositories
+        ↓
+Repository Fabric service
+```
 
-## What do you do now?
+Every organization has its own identity, repository scope, durable state, missions, decisions, and evidence. No customer instance inherits another customer's organizational state.
 
-**Tell ANNY what you need.** That's it.
+## What ANNY does
 
-When you express a need, ANNY will:
+Tell ANNY what you need. It reconstructs durable context, plans and delegates work according to its governance rules, records decisions and evidence, and continues from durable state in later sessions.
 
-1. Figure out which departments are involved
-2. Create the right missions
-3. Assign the work to the right people
-4. Track progress and evidence
-5. Review and certify the results
+## What is shared
 
-## Where to start
+The ANNY product code is shared through the public distribution. Repository Fabric is shared infrastructure operated separately from the public ANNY repository.
 
-| Document | What you'll learn |
-|----------|-------------------|
-| [First Day Guide](../00-START-HERE/FIRST-DAY-GUIDE.md) | How to get started right now |
-| [How ANNY Works](../00-START-HERE/HOW-ANNY-WORKS.md) | The big picture |
-| [Company Map](../01-COMPANY/COMPANY-MAP.md) | Who does what |
-| [People Directory](../02-PEOPLE/PEOPLE-DIRECTORY.md) | Meet the team |
-| [Glossary](../00-START-HERE/GLOSSARY.md) | What the words mean |
+## What is not shared
 
----
+Customer state, repository scope, identities, credentials, missions, evidence, and operational memory are not shared between installations.
 
-*Generated from canonical organizational state on 2026-09-05.*
+Start with `ANNY-DOCUMENTATION/00-START-HERE/DOWNLOAD-AND-INSTALL.md`.

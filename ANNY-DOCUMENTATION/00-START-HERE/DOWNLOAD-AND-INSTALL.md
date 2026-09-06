@@ -1,71 +1,71 @@
 # ANNY: Download & Install Guide
 
-Bienvenido a ANNY. Sigue estos pasos para instalar tu propia instancia de ANNY, la cual operará como una entidad completamente aislada, 100% bajo tu control, sin compartir memoria ni datos con ninguna otra organización.
+ANNY is a distributable governed runtime. Each customer installs the same ANNY product while retaining an independent GitHub identity, repository scope, and durable instance state.
 
-## 1. Dónde descargar
-La única fuente oficial para descargar el código fuente y el motor genérico de ANNY es el repositorio de distribución oficial en GitHub (por ejemplo, `<OFICIAL_DISTRIBUTION_ORG>/ANNY`).
+## 1. Download
 
-## 2. Cómo descargar
-Dirígete a la sección **Releases** en GitHub y descarga el artefacto oficial de la última versión estable, típicamente nombrado `ANNY-v1.0.0.zip`.
+Use the official releases of `GRECOITALICO/ANNY`. Release artifacts are versioned and accompanied by a SHA-256 digest.
 
-## 3. Cómo verificar SHA-256
-Abre tu terminal y ejecuta el siguiente comando para garantizar que el archivo no ha sido alterado:
-`sha256sum ANNY-v1.0.0.zip`
-Compara el hash resultante con el hash público anunciado en las notas de la release (Release Manifest).
+## 2. Verify the artifact
 
-## 4. Cómo descomprimir
-Extrae el contenido en una carpeta local:
-`unzip ANNY-v1.0.0.zip -d anny-install`
+After downloading the ZIP, run:
 
-## 5. Qué archivos/directorios aparecerán
-Encontrarás la arquitectura central (Kernel) de ANNY:
-- `schemas/`: Los contratos de datos.
-- `genesis/`: La lógica de inicialización y generación de actores.
-- `governance/`: Las reglas de autoridad y compensación (P1A).
-- `starter_pack/`: El generador genérico de estructura base.
-- Archivos de configuración como `requirements.txt`.
-*Nota: No verás carpetas como `actors`, `missions` o `evidence` todavía; estas nacerán cuando inicialices tu instancia.*
+```bash
+sha256sum ANNY-vX.Y.Z.zip
+```
 
-## 6. Cómo crear el repositorio del cliente
-Entra a tu propia cuenta de GitHub y crea un **nuevo repositorio privado** (ej. `tu-usuario/ANNY`).
+Compare the result with the digest published for that release.
 
-## 7. Cómo copiar/subir ANNY
-1. En tu carpeta local `anny-install`, inicializa Git: `git init`
-2. Conecta con tu nuevo repositorio remoto: `git remote add origin https://github.com/tu-usuario/ANNY.git`
-3. Añade los archivos y haz commit: `git add . && git commit -m "Initial ANNY installation"`
-4. Sube los archivos a GitHub: `git push -u origin main`
+## 3. Create your own GitHub repository
 
-## 8. Cómo conectar GitHub a ChatGPT
-Abre la configuración de integraciones (u otorga acceso al plugin/herramienta de GitHub dentro de tu interfaz ChatGPT / agente). Deberás autorizar el acceso exclusivamente a tu nuevo repositorio `tu-usuario/ANNY`.
+Create a private repository in your own GitHub account, for example:
 
-## 9. Cómo iniciar ANNY
-Abre un nuevo chat. Simplemente saluda a ANNY y dile:
-*"Hola ANNY, he instalado el código. Por favor, inicia la configuración."*
+```text
+YOUR-ACCOUNT/ANNY
+```
 
-## 10. Configuración única
-ANNY detectará que es un repositorio virgen y activará su protocolo "Genesis".
+Do not grant ANNY access to repositories outside the scope you intend to authorize.
 
-## 11. Qué preguntas hace
-ANNY te pedirá únicamente los datos mínimos de identidad organizacional:
-- El nombre de tu organización.
-- Confirmación de tu identidad como la Autoridad Ejecutiva (L0).
-- Confirmación para ejecutar la inicialización de la estructura estándar.
+## 4. Install the public distribution
 
-## 12. Qué crea automáticamente
-Al aprobar, ANNY generará instantáneamente:
-- **1 Director L0** (Tú).
-- **8 Directores L1** (Finanzas, Producto, Ingeniería, etc.).
-- **8 Especialistas L2**.
-Y persistirá esta estructura (junto con el registro de Genesis) en tu repositorio GitHub de forma segura e inmutable.
+Extract the release and publish the ANNY product code to your own repository:
 
-## 13. Cómo utilizarlo después
-A partir de este momento, simplemente pide lo que necesites en lenguaje natural (ej. *"Necesitamos preparar una estrategia de lanzamiento de nuestro primer producto"*). ANNY identificará al departamento adecuado, asignará la misión, documentará las decisiones y generará la evidencia automáticamente.
+```bash
+unzip ANNY-vX.Y.Z.zip -d anny-install
+cd anny-install
+git init
+git branch -M main
+git remote add origin https://github.com/YOUR-ACCOUNT/ANNY.git
+git add .
+git commit -m "Initial ANNY installation"
+git push -u origin main
+```
 
-## 14. Cómo cerrar ChatGPT
-Cuando termines de trabajar, simplemente cierra la pestaña o la ventana del chat. ANNY guarda **todo** el estado, decisiones y evidencias directamente en tu repositorio de GitHub como archivos durables.
+## 5. Connect GitHub to your AI client
 
-## 15. Cómo volver a abrir una conversación
-Inicia un nuevo chat en cualquier momento.
+Authenticate the GitHub account you intend ANNY to use. The authenticated GitHub principal is the source of repository identity and scope. A caller-supplied login, owner, or user id is not an authorization source.
 
-## 16. Cómo recuperar estado desde GitHub
-Dile a ANNY: *"Hola, continuamos trabajando en la misión de lanzamiento de producto"*. ANNY leerá tu repositorio de GitHub de forma transparente, reconstruirá el estado organizacional exacto y continuará operando sin perder ningún contexto histórico.
+## 6. Start ANNY
+
+Open a new ChatGPT conversation and ask ANNY to initialize the repository. ANNY should first inspect the durable state, identify the authenticated principal, and determine whether the repository is uninitialized.
+
+## 7. First bootstrap
+
+A new instance begins unactivated. Genesis/bootstrapping creates the local organizational state required by the product. It must not import another customer's state or CONRRAD's internal organizational state.
+
+## 8. Repository Fabric
+
+ANNY uses a public Repository Fabric client/contract boundary. Repository Fabric itself is shared infrastructure operated outside this public repository. The public distribution must not contain the private Fabric implementation.
+
+## 9. Persistence and reconstruction
+
+Operational state, missions, decisions, messages, and evidence are persisted durably according to the ANNY contracts so a later process can reconstruct context without conversational memory.
+
+## 10. Important boundary
+
+`ANNY` is the product. `GitHub` supplies the customer's authenticated identity and repository ownership/scope. `Repository Fabric` is shared infrastructure. `CONRRAD` remains the internal certification and infrastructure environment.
+
+See also:
+
+- `ANNY-DOCUMENTATION/PUBLIC-PRODUCT-BOUNDARY.md`
+- `ANNY-DOCUMENTATION/PUBLIC-CERTIFICATION-BASELINE.md`
